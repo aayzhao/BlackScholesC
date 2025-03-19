@@ -12,10 +12,29 @@ double normalCDF(double x);
 
 /*
 Computes d1 in the Black–Scholes model:
-		   ln(S/K) + (r + sigma^2 / 2) * T
-	d1 =  ---------------------------------
-	              sigma * sqrt(T)
-or: 
 	d1 = [ln(S/K) + (r + sigma^2 / 2) * T] / [sigma * sqrt(T)]
 */
 double computeD1(double S, double K, double r, double sigma, double T);
+
+/*
+Computes d2 in the Black-Scholes model:
+	d2 = d1 - sigma * sqrt(T)
+
+@param d1
+@param sigma volatility (decimal s.t. 0 < sigma < 1)
+@param T time to maturity in years
+*/
+double computeD2(double d1, double sigma, double T);
+
+/*
+Computes Black-Scholes for the price of a European-style call option.
+	Price = S * N(d1) - e^{-rt} * N(d2)
+
+@param S current underlying security price
+@param K strike price
+@param r risk-free rate (decimal s.t. 0 < r < 1)
+@param sigma volatility (decimal s.t. 0 < sigma < 1)
+@param T time to maturity in years
+@returns theoretical price of the given option
+*/
+double blackScholesCall(double S, double K, double r, double sigma, double T);

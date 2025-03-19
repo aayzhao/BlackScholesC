@@ -6,7 +6,18 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    // Example usage
+    double S = 100.0;  
+    double K = 100.0; 
+    double r = 0.05;
+    double sigma = 0.20;
+    double T = 1.0;
+
+    double callPrice = blackScholesCall(S, K, r, sigma, T);
+
+    std::cout << "Black–Scholes Call Price: " << callPrice << std::endl;
+
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

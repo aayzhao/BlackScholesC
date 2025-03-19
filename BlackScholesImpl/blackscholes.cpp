@@ -9,3 +9,20 @@ double normalPDF(double x) {
 double normalCDF(double x) {
     return 0.5 * (1.0 + std::erf(x / std::sqrt(2.0)));
 }
+
+double computeD1(double S, double K, double r, double sigma, double T) {
+    return (std::log(S / K) + (r + 0.5 * sigma * sigma) * T)
+        / (sigma * std::sqrt(T));
+}
+
+double computeD2(double d1, double sigma, double T) {
+    return d1 - sigma * std::sqrt(T);
+}
+
+double blackScholesCall(double S, double K, double r, double sigma, double T) {
+    double d1 = computeD1(S, K, r, sigma, T);
+    double d2 = computeD2(d1, sigma, T);
+
+    double callPrice = S * normalCDF(d1) - K * std::exp(-r * T) * normalCDF(d2);
+    return callPrice;
+}
