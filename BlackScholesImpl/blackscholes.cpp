@@ -26,3 +26,11 @@ double blackScholesCall(double S, double K, double r, double sigma, double T) {
     double callPrice = S * normalCDF(d1) - K * std::exp(-r * T) * normalCDF(d2);
     return callPrice;
 }
+
+double blackScholesPut(double S, double K, double r, double sigma, double T) {
+    double d1 = computeD1(S, K, r, sigma, T);
+    double d2 = computeD2(d1, sigma, T);
+
+    double putPrice = K * std::exp(-r * T) * normalCDF(-d2) - S * normalCDF(-d1);
+    return putPrice;
+}

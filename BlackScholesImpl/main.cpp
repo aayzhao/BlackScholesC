@@ -13,7 +13,7 @@ int main()
     double sigma = 0.20;
     double T = 1.0;
 
-    double callPrice = blackScholesCall(S, K, r, sigma, T);
+    double callPrice = blackScholesCall(S, K, r, sigma, T); // 10.451 expected
 
     std::cout << "Black–Scholes Call Price: " << callPrice << std::endl;
 

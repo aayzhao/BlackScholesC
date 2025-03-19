@@ -1,7 +1,8 @@
 #pragma once
 
 /*
-Standard Normal Probability Density Function implementation
+Standard Normal Probability Density Function implementation. 
+Only needed for an approximation of CDF using Abramowitz and Stegun.
 */
 double normalPDF(double x);
 
@@ -38,3 +39,16 @@ Computes Black-Scholes for the price of a European-style call option.
 @returns theoretical price of the given option
 */
 double blackScholesCall(double S, double K, double r, double sigma, double T);
+
+/*
+Computes Black-Scholes for the price of a European-style call option.
+	Price = e^{-rT} * K * N(-d2) - S * N(-d1)
+
+@param S current underlying security price
+@param K strike price
+@param r risk-free rate (decimal s.t. 0 < r < 1)
+@param sigma volatility (decimal s.t. 0 < sigma < 1)
+@param T time to maturity in years
+@returns theoretical price of the given option
+*/
+double blackScholesPut(double S, double K, double r, double sigma, double T);
