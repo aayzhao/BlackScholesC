@@ -45,7 +45,7 @@ extern "C" {
 	@param T time to maturity in years
 	@returns theoretical price of the given option
 	*/
-	double blackScholesCall(double S, double K, double r, double sigma, double T);
+	BLACK_SCHOLES_API double blackScholesCall(double S, double K, double r, double sigma, double T);
 
 	/*
 	Computes Black-Scholes for the price of a European-style call option.
@@ -58,5 +58,5 @@ extern "C" {
 	@param T time to maturity in years
 	@returns theoretical price of the given option
 	*/
-	double blackScholesPut(double S, double K, double r, double sigma, double T);
+	BLACK_SCHOLES_API double blackScholesPut(double S, double K, double r, double sigma, double T);
 }
