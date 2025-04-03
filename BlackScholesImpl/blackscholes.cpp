@@ -1,25 +1,26 @@
+#include "pch.h"
 #include "blackscholes.h"
 #include <cmath>
 
-double normalPDF(double x) {
+double WINAPI normalPDF(double x) {
     static const double INV_SQRT_2PI = 0.3989422804014327;
     return INV_SQRT_2PI * std::exp(-0.5 * x * x);
 }
 
-double normalCDF(double x) {
+double WINAPI normalCDF(double x) {
     return 0.5 * (1.0 + std::erf(x / std::sqrt(2.0)));
 }
 
-double computeD1(double S, double K, double r, double sigma, double T) {
+double WINAPI computeD1(double S, double K, double r, double sigma, double T) {
     return (std::log(S / K) + (r + 0.5 * sigma * sigma) * T)
         / (sigma * std::sqrt(T));
 }
 
-double computeD2(double d1, double sigma, double T) {
+double WINAPI computeD2(double d1, double sigma, double T) {
     return d1 - sigma * std::sqrt(T);
 }
 
-double blackScholesCall(double S, double K, double r, double sigma, double T) {
+double WINAPI blackScholesCall(double S, double K, double r, double sigma, double T) {
     double d1 = computeD1(S, K, r, sigma, T);
     double d2 = computeD2(d1, sigma, T);
 
@@ -27,7 +28,7 @@ double blackScholesCall(double S, double K, double r, double sigma, double T) {
     return callPrice;
 }
 
-double blackScholesPut(double S, double K, double r, double sigma, double T) {
+double WINAPI blackScholesPut(double S, double K, double r, double sigma, double T) {
     double d1 = computeD1(S, K, r, sigma, T);
     double d2 = computeD2(d1, sigma, T);
 

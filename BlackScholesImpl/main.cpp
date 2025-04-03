@@ -9,15 +9,15 @@ int main()
     // Example usage
     double S = 100.0;  
     double K = 100.0; 
-    double r = 0.05;
+    double r = 0.05; 
     double sigma = 0.20;
     double T = 1.0;
 
     double callPrice = blackScholesCall(S, K, r, sigma, T); // ~10.45 expected
     double putPrice = blackScholesPut(S, K, r, sigma, T); // ~5.57 expected
 
-    std::cout << "Black–Scholes Call Price: " << callPrice << std::endl;
-    std::cout << "Black–Scholes Put Price:  " << putPrice << std::endl;
+    std::cout << "Black-Scholes Call Price: " << callPrice << std::endl;
+    std::cout << "Black-Scholes Put Price:  " << putPrice << std::endl;
 
     return 0;
 }
