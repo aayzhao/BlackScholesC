@@ -59,4 +59,14 @@ extern "C" {
 	@returns theoretical price of the given option
 	*/
 	BLACK_SCHOLES_API double blackScholesPut(double S, double K, double r, double sigma, double T);
+
+
+	/*
+	Computes the Black-Scholes model for the price of a European-style call option
+	with the following parameters: S = 100, K = 100, r = 0.05, sigma = 0.20, T = 1.0, 
+	and does this computation 10,000 times in a for-loop.
+
+	This is for purely speed demonstrations against the native python implementation.
+	*/
+	BLACK_SCHOLES_API void largeCalculationVolume();
 }

@@ -35,3 +35,10 @@ double WINAPI blackScholesPut(double S, double K, double r, double sigma, double
     double putPrice = K * std::exp(-r * T) * normalCDF(-d2) - S * normalCDF(-d1);
     return putPrice;
 }
+
+void WINAPI largeCalculationVolume() {
+    volatile double accumulator = 0.0; // volatile prevents optimizing away the for-loop
+    for (int i = 0; i < 10000; i++) {
+        accumulator += blackScholesCall(100, 100, 0.05, 0.20, 1.0);
+    }
+}

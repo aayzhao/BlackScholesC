@@ -19,7 +19,13 @@ class BlackScholesCLibWrapper:
     @staticmethod
     def calcPut(S: float, K: float, r: float, sigma: float, T: float) -> float:
         return BlackScholesCLibWrapper._blackScholesLib.blackScholesPut(S, K, r, sigma, T)
+    
+    @staticmethod
+    def largeCalcVolume():
+        BlackScholesCLibWrapper._blackScholesLib.largeCalculationVolume()
+        return
 
 # expose wrapper functions at the module level
 calcCallPriceC = BlackScholesCLibWrapper.calcCall
 calcPutPriceC = BlackScholesCLibWrapper.calcPut
+largeCalcVolC = BlackScholesCLibWrapper.largeCalcVolume
